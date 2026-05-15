@@ -1,0 +1,7 @@
+streamlit==1.32.2
+moviepy>=2.2.1
+edge-tts==6.1.9
+playwright==1.42.0
+beautifulsoup4==4.12.3
+requests==2.31.0
+pillow==10.2.0
