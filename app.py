@@ -125,10 +125,15 @@ with tab2:
     
     bg_style = "background-color: rgba(0, 0, 0, 0.7); padding: 15px 30px; border-radius: 15px;" if use_bg_box else ""
     
+    # 실제 쇼츠(1080x1920) 비율을 1/4로 줄인 미리보기 컨테이너 (270x480)
+    scaled_font_size = font_size * 0.25 
+    
     preview_html = f"""
-<div style="background-color: #2b2b2b; background-image: linear-gradient(45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f), linear-gradient(45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f); background-size: 20px 20px; background-position: 0 0, 10px 10px; height: 180px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; border-radius: 10px; border: 2px dashed #666; margin-bottom: 20px;">
-    <div style="{bg_style} font-family: {css_font}; font-size: {font_size * 0.7}px; color: {font_color}; text-align: center; font-weight: bold; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; line-height: 1.4;">
-        적용된 폰트, 크기, 색상입니다!<br>긴 문장은 자동으로 줄바꿈됩니다.
+<div style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <div style="width: 270px; height: 480px; background-color: #2b2b2b; background-image: linear-gradient(45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f), linear-gradient(45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f); background-size: 20px 20px; background-position: 0 0, 10px 10px; position: relative; border-radius: 15px; border: 4px solid #555; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+        <div style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 90%; {bg_style} font-family: {css_font}; font-size: {scaled_font_size}px; color: {font_color}; text-align: center; font-weight: bold; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; line-height: 1.4; word-break: keep-all;">
+            적용된 폰트, 크기, 색상입니다!<br>긴 문장은 자동으로 줄바꿈됩니다.
+        </div>
     </div>
 </div>
     """
